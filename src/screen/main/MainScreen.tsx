@@ -1,16 +1,33 @@
 import { StyleSheet, View } from "react-native";
-import Constants from "expo-constants";
+import { LinearGradient } from "expo-linear-gradient";
 
-import { WelcomeScreen } from "../welcome/WelcomeScreen";
+import Constants from "expo-constants";
+import { colors } from "../../styles/variables/colors";
+
+import { BackgroundFlag } from "../../components/visuals/background-flag/BackgroundFlag";
+import { LoginScreen } from "../login/LoginScreen";
 
 export const MainScreen = () => {
   return (
     <View style={styles.container}>
-      <WelcomeScreen />
+      <BackgroundFlag></BackgroundFlag>
+      <LinearGradient
+        style={styles.statusBarBackground}
+        colors={[colors.black, colors.grayDark]}
+        start={[0, 0]}
+        end={[1, 1]}
+      ></LinearGradient>
+      <LoginScreen />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  container: { marginTop: Constants.statusBarHeight },
+  container: {
+    position: "relative",
+  },
+  statusBarBackground: {
+    width: "100%",
+    height: Constants.statusBarHeight,
+  },
 });

@@ -9,4 +9,6 @@ export const colors = {
   primary: "#EF233C",
   primaryDark: "#8C0C14",
   primaryLight: "#ED475B",
+  blueLink: "#1E58AF",
+  danger: "#EF233C",
 };

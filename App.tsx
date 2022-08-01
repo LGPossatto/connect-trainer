@@ -6,7 +6,7 @@ import { MainScreen } from "./src/screen/main/MainScreen";
 export default function App() {
   return (
     <View style={styles.container}>
-      <StatusBar style="dark" />
+      <StatusBar style="light" backgroundColor="transparent" />
       <MainScreen></MainScreen>
     </View>
   );

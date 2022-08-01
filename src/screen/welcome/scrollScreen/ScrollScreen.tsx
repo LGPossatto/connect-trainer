@@ -1,7 +1,7 @@
 import { Image, StyleSheet, Text, View } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 
-import { screenHeight, screenWidth } from "../../../styles/helpers/vars";
+import { screenHeight, screenWidth } from "../../../styles/variables/screen";
 import { textColor, textStyles } from "../../../styles/textStyles";
 
 interface props {

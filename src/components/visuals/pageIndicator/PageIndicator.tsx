@@ -1,5 +1,5 @@
 import { StyleSheet, View } from "react-native";
-import { colors } from "../../../styles/helpers/colors";
+import { colors } from "../../../styles/variables/colors";
 
 interface props {
   numOfIndicators: number;

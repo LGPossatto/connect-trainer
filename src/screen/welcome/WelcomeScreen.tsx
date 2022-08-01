@@ -8,7 +8,7 @@ import {
 } from "react-native";
 
 import { welcomeData } from "./welcomeData";
-import { screenWidth } from "../../styles/helpers/vars";
+import { screenWidth } from "../../styles/variables/screen";
 
 import { PageIndicator } from "../../components/visuals/pageIndicator/PageIndicator";
 import { ScrollScreen } from "./scrollScreen/ScrollScreen";
