@@ -2,15 +2,15 @@ import { useState } from "react";
 import { StyleSheet, View } from "react-native";
 
 import { CtaButton } from "../../../components/buttons/cta/CtaButton";
-import { LinkButton } from "../../../components/buttons/link/LinkButton";
 import { InputText } from "../../../components/inputs/input-text/InputText";
 
-export const LoginForm = () => {
+export const CreateAccountForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
 
   const onPress = () => {
-    console.log({ email, password });
+    console.log({ email, password, confirmPassword });
   };
 
   return (
@@ -27,17 +27,19 @@ export const LoginForm = () => {
         setValue={setPassword}
         label="Senha"
         error={null}
-        placeholder="Digite sua senha"
         secure
+        placeholder="Digite sua senha"
       ></InputText>
-      <LinkButton
-        text="Esqueceu sua senha?"
-        onPress={() => {
-          console.log("login link button");
-        }}
-      ></LinkButton>
+      <InputText
+        value={confirmPassword}
+        setValue={setConfirmPassword}
+        label="Cofirme sua Senha"
+        error={null}
+        secure
+        placeholder="Confirme sua senha novamente"
+      ></InputText>
       <View style={styles.buttonView}>
-        <CtaButton onPress={onPress} text="Confirmar" size="big"></CtaButton>
+        <CtaButton onPress={onPress} text="Continuar" size="big"></CtaButton>
       </View>
     </View>
   );

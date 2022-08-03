@@ -6,16 +6,16 @@ import { colors } from "../../styles/variables/colors";
 import { TitleLogo } from "../../components/visuals/title-logo/TitleLogo";
 import { StackingCard } from "../../components/cards/stacking-card/StackingCard";
 import { GoogleButton } from "../../components/buttons/google/GoogleButton";
-import { LoginForm } from "./login-form/LoginForm";
+import { CreateAccountForm } from "./create-account-form/CreateAccountForm";
 
-export const LoginScreen = () => {
+export const CreateAccountScreen = () => {
   return (
     <View style={styles.container}>
       <TitleLogo></TitleLogo>
       <StackingCard>
         <View style={styles.cardView}>
-          <Text style={textStyles.bigBold}>Fazer Login</Text>
-          <Text style={textStyles.regular}>Entre na sua conta pessoal</Text>
+          <Text style={textStyles.bigBold}>Criar Conta</Text>
+          <Text style={textStyles.regular}>Crie sua conta pessoal</Text>
         </View>
         <View style={[styles.cardView, styles.googleView]}>
           <GoogleButton></GoogleButton>
@@ -26,7 +26,7 @@ export const LoginScreen = () => {
           <View style={styles.viewSplit}></View>
         </View>
         <View style={[styles.cardView, styles.form]}>
-          <LoginForm></LoginForm>
+          <CreateAccountForm></CreateAccountForm>
         </View>
       </StackingCard>
     </View>
