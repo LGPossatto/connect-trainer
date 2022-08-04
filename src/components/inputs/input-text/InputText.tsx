@@ -7,28 +7,28 @@ import { textColor, textStyles } from "../../../styles/textStyles";
 import { colors } from "../../../styles/variables/colors";
 
 interface props {
-  label: string;
-  error: string | null;
   value: string;
-  setValue: React.Dispatch<React.SetStateAction<string>>;
+  onChange: (...event: any[]) => void;
+  label: string;
   placeholder?: string;
+  error?: string | null;
   secure?: boolean;
   numeric?: boolean;
 }
 
 export const InputText = ({
   value,
-  setValue,
+  onChange,
   label,
-  error,
   placeholder = "",
+  error = null,
   secure = false,
   numeric = false,
 }: props) => {
   const [onFocus, setOnFocus] = useState(false);
 
-  const handdleNumeric = (e: string) => {
-    if (checkIfNumber(e)) setValue(e);
+  const handdleNumericChange = (e: string) => {
+    if (checkIfNumber(e)) onChange(e);
   };
 
   return (
@@ -42,7 +42,7 @@ export const InputText = ({
           onFocus || value.length > 0 ? style.onFocus : null,
         ]}
         value={value}
-        onChangeText={numeric ? setValue : (e) => handdleNumeric(e)}
+        onChangeText={numeric ? handdleNumericChange : onChange}
         placeholder={placeholder}
         onFocus={() => setOnFocus(true)}
         onBlur={() => setOnFocus(false)}

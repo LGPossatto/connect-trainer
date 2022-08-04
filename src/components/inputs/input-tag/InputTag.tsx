@@ -7,28 +7,30 @@ import { textColor, textStyles } from "../../../styles/textStyles";
 import { colors } from "../../../styles/variables/colors";
 
 interface props {
-  label: string;
-  error: string | null;
   value: string;
+  onChange: (...event: any[]) => void;
+  label: string;
   tag: string;
-  setValue: React.Dispatch<React.SetStateAction<string>>;
   placeholder?: string;
+  error?: string | null;
+  secure?: boolean;
   numeric?: boolean;
 }
 
 export const InputTag = ({
   value,
-  setValue,
+  onChange,
   label,
-  error,
   tag,
   placeholder = "",
+  error = null,
+  secure = false,
   numeric = false,
 }: props) => {
   const [onFocus, setOnFocus] = useState(false);
 
-  const handdleNumeric = (e: string) => {
-    if (checkIfNumber(e)) setValue(e);
+  const handdleNumericChange = (e: string) => {
+    if (checkIfNumber(e)) onChange(e);
   };
 
   return (
@@ -43,10 +45,12 @@ export const InputTag = ({
             onFocus || value.length > 0 ? style.onFocus : null,
           ]}
           value={value}
-          onChangeText={numeric ? handdleNumeric : setValue}
+          onChangeText={numeric ? handdleNumericChange : onChange}
           placeholder={placeholder}
           onFocus={() => setOnFocus(true)}
           onBlur={() => setOnFocus(false)}
+          secureTextEntry={secure}
+          keyboardType={numeric ? "number-pad" : "default"}
         ></TextInput>
         <View
           style={[
@@ -75,15 +79,18 @@ const style = StyleSheet.create({
     marginBottom: 4,
   },
   inputView: {
+    transform: [{ translateX: 12 }],
     width: "100%",
     flexDirection: "row",
     alignItems: "center",
   },
   input: {
+    marginLeft: -12,
+    marginRight: -12,
     flex: 1,
     paddingVertical: 12,
     paddingLeft: 16,
-    paddingRight: 28,
+    paddingRight: 38,
     borderWidth: 2,
     borderTopLeftRadius: 8,
     borderBottomLeftRadius: 8,
