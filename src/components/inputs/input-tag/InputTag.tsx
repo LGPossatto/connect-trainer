@@ -44,6 +44,7 @@ export const InputTag = ({
             textColor.grayDark,
             onFocus || value.length > 0 ? style.onFocus : null,
           ]}
+          textAlign="right"
           value={value}
           onChangeText={numeric ? handdleNumericChange : onChange}
           placeholder={placeholder}
