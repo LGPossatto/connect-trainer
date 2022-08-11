@@ -1,7 +1,7 @@
 import { StyleSheet, View } from "react-native";
 import { StatusBar } from "expo-status-bar";
 
-import { MainScreen } from "./src/screen/main/MainScreen";
+import { MainScreen } from "./src/screens/main-screen/MainScreen";
 
 export default function App() {
   return (

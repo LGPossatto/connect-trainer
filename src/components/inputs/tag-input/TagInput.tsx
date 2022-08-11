@@ -17,7 +17,7 @@ interface props {
   numeric?: boolean;
 }
 
-export const InputTag = ({
+export const TagInput = ({
   value,
   onChange,
   label,
@@ -34,15 +34,15 @@ export const InputTag = ({
   };
 
   return (
-    <View style={style.container}>
-      <Text style={[style.label, textStyles.regularSemiBold]}>{label}</Text>
-      <View style={style.inputView}>
+    <View style={styles.container}>
+      <Text style={[styles.label, textStyles.regularSemiBold]}>{label}</Text>
+      <View style={styles.inputView}>
         <TextInput
           style={[
-            style.input,
+            styles.input,
             textStyles.regular,
             textColor.grayDark,
-            onFocus || value.length > 0 ? style.onFocus : null,
+            onFocus || value.length > 0 ? styles.onFocus : null,
           ]}
           textAlign="right"
           value={value}
@@ -55,15 +55,15 @@ export const InputTag = ({
         ></TextInput>
         <View
           style={[
-            style.tag,
-            onFocus || value.length > 0 ? style.onFocus : null,
+            styles.tag,
+            onFocus || value.length > 0 ? styles.onFocus : null,
           ]}
         >
           <Text style={[textStyles.smallBold, textColor.gray]}>{tag}</Text>
         </View>
       </View>
       {error && (
-        <Text style={[style.error, textStyles.regular, textColor.danger]}>
+        <Text style={[styles.error, textStyles.regular, textColor.danger]}>
           ! {error}
         </Text>
       )}
@@ -71,7 +71,7 @@ export const InputTag = ({
   );
 };
 
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     marginBottom: 8,
     marginTop: 4,

@@ -5,7 +5,7 @@ import Constants from "expo-constants";
 import { colors } from "../../styles/variables/colors";
 
 import { BackgroundFlag } from "../../components/visuals/background-flag/BackgroundFlag";
-import { BasicInfoCollectionScreen } from "../basic-info-collection/BasicInfoCollectionScreen";
+import { BasicInfoCollectionScreen } from "../basic-info-collection-screen/BasicInfoCollectionScreen";
 
 export const MainScreen = () => {
   return (

@@ -16,7 +16,7 @@ interface props {
   numeric?: boolean;
 }
 
-export const InputText = ({
+export const LabelTextInput = ({
   value,
   onChange,
   label,
@@ -32,14 +32,14 @@ export const InputText = ({
   };
 
   return (
-    <View style={style.container}>
-      <Text style={[style.label, textStyles.regularSemiBold]}>{label}</Text>
+    <View style={styles.container}>
+      <Text style={[styles.label, textStyles.regularSemiBold]}>{label}</Text>
       <TextInput
         style={[
-          style.input,
+          styles.input,
           textStyles.regular,
           textColor.grayDark,
-          onFocus || value.length > 0 ? style.onFocus : null,
+          onFocus || value.length > 0 ? styles.onFocus : null,
         ]}
         value={value}
         onChangeText={numeric ? handdleNumericChange : onChange}
@@ -50,7 +50,7 @@ export const InputText = ({
         keyboardType={numeric ? "number-pad" : "default"}
       ></TextInput>
       {error && (
-        <Text style={[style.error, textStyles.regular, textColor.danger]}>
+        <Text style={[styles.error, textStyles.regular, textColor.danger]}>
           ! {error}
         </Text>
       )}
@@ -58,7 +58,7 @@ export const InputText = ({
   );
 };
 
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     marginBottom: 8,
     marginTop: 4,

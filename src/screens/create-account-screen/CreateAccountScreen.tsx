@@ -5,7 +5,7 @@ import { colors } from "../../styles/variables/colors";
 
 import { TitleLogo } from "../../components/visuals/title-logo/TitleLogo";
 import { StackingCard } from "../../components/cards/stacking-card/StackingCard";
-import { GoogleButton } from "../../components/buttons/google/GoogleButton";
+import { GoogleButton } from "../../components/buttons/google-button/GoogleButton";
 import { CreateAccountForm } from "./create-account-form/CreateAccountForm";
 
 export const CreateAccountScreen = () => {

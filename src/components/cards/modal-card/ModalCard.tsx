@@ -2,13 +2,35 @@ import { FC } from "react";
 import { Modal, StyleSheet, View } from "react-native";
 
 import { colors } from "../../../styles/variables/colors";
+import { CtaButton } from "../../buttons/cta-button/CtaButton";
 
-export const ModalCard: FC = ({ children }) => {
+interface props {
+  open: boolean;
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  btnText: string;
+  onPress?: () => void;
+}
+
+export const ModalCard: FC<props> = ({
+  open,
+  setOpen,
+  btnText,
+  onPress,
+  children,
+}) => {
+  const handleOnPress = () => {
+    if (onPress) onPress();
+    setOpen(false);
+  };
+
   return (
-    <Modal transparent statusBarTranslucent>
+    <Modal transparent statusBarTranslucent visible={open}>
       <View style={styles.container}>
         <View style={styles.background}></View>
-        <View style={styles.card}>{children}</View>
+        <View style={styles.card}>
+          {children}
+          <CtaButton text={btnText} onPress={handleOnPress}></CtaButton>
+        </View>
       </View>
     </Modal>
   );

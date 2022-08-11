@@ -10,7 +10,7 @@ import {
 import { welcomeData } from "./welcomeData";
 import { screenWidth } from "../../styles/variables/screen";
 
-import { PageIndicator } from "../../components/visuals/pageIndicator/PageIndicator";
+import { PageIndicator } from "../../components/visuals/page-indicator/PageIndicator";
 import { ScrollScreen } from "./scrollScreen/ScrollScreen";
 
 export const WelcomeScreen = () => {

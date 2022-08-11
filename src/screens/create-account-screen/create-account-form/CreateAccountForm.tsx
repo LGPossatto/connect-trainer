@@ -1,11 +1,10 @@
 import { StyleSheet, View } from "react-native";
 import { Controller, useForm } from "react-hook-form";
 
-import { CtaButton } from "../../../components/buttons/cta/CtaButton";
-import { LinkButton } from "../../../components/buttons/link/LinkButton";
-import { InputText } from "../../../components/inputs/input-text/InputText";
+import { CtaButton } from "../../../components/buttons/cta-button/CtaButton";
+import { LabelTextInput } from "../../../components/inputs/label-text-input/LabelTextInput";
 
-export const LoginForm = () => {
+export const CreateAccountForm = () => {
   const {
     control,
     handleSubmit,
@@ -14,6 +13,7 @@ export const LoginForm = () => {
     defaultValues: {
       email: "",
       password: "",
+      confirmPassword: "",
     },
   });
 
@@ -28,12 +28,12 @@ export const LoginForm = () => {
           required: true,
         }}
         render={({ field: { value, onChange } }) => (
-          <InputText
+          <LabelTextInput
             label="E-mail"
             value={value}
             onChange={onChange}
             placeholder="Digite seu e-mail"
-          ></InputText>
+          ></LabelTextInput>
         )}
       />
       <Controller
@@ -43,22 +43,33 @@ export const LoginForm = () => {
           required: true,
         }}
         render={({ field: { value, onChange } }) => (
-          <InputText
+          <LabelTextInput
             label="Senha"
             value={value}
             onChange={onChange}
             placeholder="Digite sua senha"
-          ></InputText>
+            secure
+          ></LabelTextInput>
         )}
       />
-      <LinkButton
-        text="Esqueceu sua senha?"
-        onPress={() => {
-          console.log("login link button");
+      <Controller
+        name="confirmPassword"
+        control={control}
+        rules={{
+          required: true,
         }}
-      ></LinkButton>
+        render={({ field: { value, onChange } }) => (
+          <LabelTextInput
+            label="Confirmar senha"
+            value={value}
+            onChange={onChange}
+            placeholder="Digite sua senha novamente"
+            secure
+          ></LabelTextInput>
+        )}
+      />
       <View style={styles.buttonView}>
-        <CtaButton onPress={onPress} text="Confirmar" size="big"></CtaButton>
+        <CtaButton onPress={onPress} text="Continuar" size="big"></CtaButton>
       </View>
     </View>
   );

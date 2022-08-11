@@ -1,12 +1,14 @@
-import { StyleSheet, Text, View } from "react-native";
+import { useState } from "react";
+import { StyleSheet, View } from "react-native";
 import { Controller, useForm } from "react-hook-form";
 
-import { CtaButton } from "../../../components/buttons/cta/CtaButton";
-import { InputTag } from "../../../components/inputs/input-tag/InputTag";
-import { InputText } from "../../../components/inputs/input-text/InputText";
-import { ModalCard } from "../../../components/cards/modal-card/ModalCard";
+import { CtaButton } from "../../../components/buttons/cta-button/CtaButton";
+import { TagInput } from "../../../components/inputs/tag-input/TagInput";
+import { LabelTextInput } from "../../../components/inputs/label-text-input/LabelTextInput";
+import { DatetimeInput } from "../../../components/inputs/datetime-input/DatetimeInput";
 
 export const BasicInfoForm = () => {
+  const [date, setDate] = useState(new Date());
   const {
     control,
     handleSubmit,
@@ -15,7 +17,7 @@ export const BasicInfoForm = () => {
     defaultValues: {
       name: "",
       weight: "",
-      birthday: "",
+      birthday: new Date(),
       height: "",
     },
   });
@@ -26,9 +28,6 @@ export const BasicInfoForm = () => {
 
   return (
     <View style={styles.container}>
-      <ModalCard>
-        <Text>oiasdasdsa</Text>
-      </ModalCard>
       <Controller
         name="name"
         control={control}
@@ -36,12 +35,12 @@ export const BasicInfoForm = () => {
           required: true,
         }}
         render={({ field: { value, onChange } }) => (
-          <InputText
+          <LabelTextInput
             label="Nome"
             value={value}
             onChange={onChange}
             placeholder="Seu nome"
-          ></InputText>
+          ></LabelTextInput>
         )}
       />
       <View style={styles.rowView}>
@@ -52,13 +51,13 @@ export const BasicInfoForm = () => {
             rules={{
               required: true,
             }}
-            render={({ field: { value, onChange } }) => (
-              <InputText
+            render={({ field: { onChange, value } }) => (
+              <DatetimeInput
                 label="Nascimento"
+                setValue={onChange}
                 value={value}
-                onChange={onChange}
-                placeholder="07/12/1994"
-              ></InputText>
+                placeholderRight
+              ></DatetimeInput>
             )}
           />
         </View>
@@ -70,14 +69,14 @@ export const BasicInfoForm = () => {
               required: true,
             }}
             render={({ field: { onChange, value } }) => (
-              <InputTag
+              <TagInput
                 label="Altura"
                 tag="m"
                 value={value}
                 onChange={onChange}
                 placeholder="1.75"
                 numeric
-              ></InputTag>
+              ></TagInput>
             )}
           />
         </View>
@@ -89,14 +88,14 @@ export const BasicInfoForm = () => {
               required: true,
             }}
             render={({ field: { onChange, value } }) => (
-              <InputTag
+              <TagInput
                 label="Peso"
                 tag="kg"
                 value={value}
                 onChange={onChange}
                 placeholder="85"
                 numeric
-              ></InputTag>
+              ></TagInput>
             )}
           />
         </View>
