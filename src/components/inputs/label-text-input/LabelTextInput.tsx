@@ -14,6 +14,7 @@ interface props {
   error?: string | null;
   secure?: boolean;
   numeric?: boolean;
+  numberofLines?: number;
 }
 
 export const LabelTextInput = ({
@@ -24,6 +25,7 @@ export const LabelTextInput = ({
   error = null,
   secure = false,
   numeric = false,
+  numberofLines = 1,
 }: props) => {
   const [onFocus, setOnFocus] = useState(false);
 
@@ -40,6 +42,7 @@ export const LabelTextInput = ({
           textStyles.regular,
           textColor.grayDark,
           onFocus || value.length > 0 ? styles.onFocus : null,
+          numberofLines > 1 ? { maxHeight: 24 * numberofLines + 24 } : null,
         ]}
         value={value}
         onChangeText={numeric ? handdleNumericChange : onChange}
@@ -48,6 +51,9 @@ export const LabelTextInput = ({
         onBlur={() => setOnFocus(false)}
         secureTextEntry={secure}
         keyboardType={numeric ? "number-pad" : "default"}
+        numberOfLines={numberofLines}
+        multiline={numberofLines > 1 ? true : false}
+        textAlignVertical={numberofLines > 1 ? "top" : "auto"}
       ></TextInput>
       {error && (
         <Text style={[styles.error, textStyles.regular, textColor.danger]}>

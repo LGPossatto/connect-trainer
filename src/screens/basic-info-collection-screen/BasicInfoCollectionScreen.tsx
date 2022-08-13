@@ -10,15 +10,17 @@ export const BasicInfoCollectionScreen = () => {
   return (
     <View style={styles.container}>
       <TitleLogo></TitleLogo>
-      <StackingCard>
-        <View style={styles.cardView}>
-          <Text style={textStyles.bigBold}>Só mais um pouco</Text>
-          <Text style={textStyles.regular}>Me conte mais sobre você</Text>
-        </View>
-        <View style={[styles.cardView, styles.form]}>
-          <BasicInfoForm></BasicInfoForm>
-        </View>
-      </StackingCard>
+      <View style={styles.marginTop}>
+        <StackingCard>
+          <View style={styles.cardView}>
+            <Text style={textStyles.bigBold}>Só mais um pouco</Text>
+            <Text style={textStyles.regular}>Me conte mais sobre você</Text>
+          </View>
+          <View style={[styles.cardView, styles.form]}>
+            <BasicInfoForm></BasicInfoForm>
+          </View>
+        </StackingCard>
+      </View>
     </View>
   );
 };
@@ -31,4 +33,5 @@ const styles = StyleSheet.create({
   form: {
     marginVertical: 8,
   },
+  marginTop: { marginTop: -24 },
 });

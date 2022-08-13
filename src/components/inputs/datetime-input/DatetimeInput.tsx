@@ -11,6 +11,7 @@ interface props {
   label: string;
   value: Date;
   setValue: React.Dispatch<React.SetStateAction<Date>>;
+  inicialValue: Date;
   mode?: "date" | "time";
   placeholderRight?: boolean;
 }
@@ -19,6 +20,7 @@ export const DatetimeInput = ({
   label,
   value,
   setValue,
+  inicialValue,
   mode = "date",
   placeholderRight = false,
 }: props) => {
@@ -54,7 +56,7 @@ export const DatetimeInput = ({
         <TouchableOpacity
           style={[
             styles.input,
-            value.toLocaleDateString() !== new Date().toLocaleDateString()
+            value.toLocaleDateString() !== inicialValue.toLocaleDateString()
               ? styles.onFocus
               : null,
           ]}
@@ -66,7 +68,7 @@ export const DatetimeInput = ({
               textStyles.regular,
               textColor.gray,
               placeholderRight ? styles.placeholderRight : null,
-              value.toLocaleDateString() !== new Date().toLocaleDateString()
+              value.toLocaleDateString() !== inicialValue.toLocaleDateString()
                 ? textColor.grayDark
                 : null,
             ]}

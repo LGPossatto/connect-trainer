@@ -1,26 +1,26 @@
-import { FC, useState } from "react";
+import { useState } from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import { ModalCard } from "../../cards/modal-card/ModalCard";
 
 import { colors } from "../../../styles/variables/colors";
 import { textColor, textStyles } from "../../../styles/textStyles";
+import { ItemsSelect } from "./items-select/ItemsSelect";
 
 interface props {
+  value: string;
+  setValue: React.Dispatch<React.SetStateAction<string>>;
   label: string;
   placeholder: string;
-  placeholderRight?: boolean;
-  onPress: () => void;
+  itemsList: string[];
 }
 
-export const InputModal: FC<props> = ({
+export const SelectTextInput = ({
+  value,
+  setValue,
   label,
   placeholder,
-  placeholderRight = false,
-  onPress,
-  children,
-}) => {
+  itemsList,
+}: props) => {
   const [open, setOpen] = useState(false);
-  const [inputValue, setInputValue] = useState(placeholder);
 
   const handleOnPress = () => {
     setOpen(true);
@@ -28,13 +28,17 @@ export const InputModal: FC<props> = ({
 
   return (
     <View>
-      <ModalCard btnText="Confirmar" open={open} setOpen={setOpen}>
-        {children}
-      </ModalCard>
+      <ItemsSelect
+        value={value}
+        setValue={setValue}
+        open={open}
+        itemsList={itemsList}
+        setOpen={setOpen}
+      ></ItemsSelect>
       <View style={styles.inputView}>
         <Text style={[styles.label, textStyles.regularSemiBold]}>{label}</Text>
         <TouchableOpacity
-          style={[styles.input]}
+          style={[styles.input, value !== "" && styles.onFocus]}
           onPress={handleOnPress}
           activeOpacity={0.7}
         >
@@ -42,10 +46,10 @@ export const InputModal: FC<props> = ({
             style={[
               textStyles.regular,
               textColor.gray,
-              placeholderRight ? styles.placeholderRight : null,
+              value !== "" && textColor.grayDark,
             ]}
           >
-            {inputValue}
+            {value === "" ? placeholder : value}
           </Text>
         </TouchableOpacity>
       </View>
