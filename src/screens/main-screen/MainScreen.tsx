@@ -5,7 +5,7 @@ import Constants from "expo-constants";
 import { colors } from "../../styles/variables/colors";
 
 import { BackgroundFlag } from "../../components/visuals/background-flag/BackgroundFlag";
-import { BasicInfoCollectionScreen } from "../basic-info-collection-screen/BasicInfoCollectionScreen";
+import { HomeScreen } from "../home-screen/HomeScreen";
 
 export const MainScreen = () => {
   return (
@@ -17,7 +17,7 @@ export const MainScreen = () => {
         start={[0, 0]}
         end={[1, 1]}
       ></LinearGradient>
-      <BasicInfoCollectionScreen></BasicInfoCollectionScreen>
+      <HomeScreen></HomeScreen>
     </View>
   );
 };
