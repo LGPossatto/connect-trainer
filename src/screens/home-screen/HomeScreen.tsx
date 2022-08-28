@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from "react-native";
 import { textColor, textStyles } from "../../styles/textStyles";
 
 import { TitleLogo } from "../../components/visuals/title-logo/TitleLogo";
-import { TrainingCard } from "../../components/cards/training-card/TrainingCard";
+import { WorkoutCard } from "../../components/cards/workout-card/WorkoutCard";
 
 export const HomeScreen = () => {
   return (
@@ -16,7 +16,7 @@ export const HomeScreen = () => {
       >
         Proxímos treinos:
       </Text>
-      <TrainingCard title="ASDsadsad asd asd dsa"></TrainingCard>
+      <WorkoutCard title="ASDsadsad asd asd dsa"></WorkoutCard>
     </View>
   );
 };

@@ -1,7 +1,6 @@
 import { StyleSheet, View } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 
-import Constants from "expo-constants";
 import { screenTrueHeight } from "../../../styles/variables/screen";
 import { colors } from "../../../styles/variables/colors";
 

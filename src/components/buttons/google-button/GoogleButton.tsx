@@ -3,7 +3,7 @@ import { StyleSheet, Text, TouchableOpacity } from "react-native";
 import { textColor, textStyles } from "../../../styles/textStyles";
 import { dropShadow } from "../../../styles/dropShadows";
 
-import { GoogleLogo } from "../../../assets/icons/googleLogo";
+import { GoogleLogo } from "../../../assets/icons/GoogleLogo";
 
 export const GoogleButton = () => {
   const onPress = () => {};

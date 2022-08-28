@@ -10,7 +10,7 @@ interface props {
   title: string;
 }
 
-export const TrainingCard = ({ title }: props) => {
+export const WorkoutCard = ({ title }: props) => {
   const handleOnPress = () => {
     console.log("card press");
   };
